@@ -1,0 +1,2254 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>iKollege:Triesten Technologies</title>
+    <!-- Bootstrap core CSS -->
+    <link href="asset_new/css/bootstrap.min.css" rel="stylesheet">
+    <link href="asset_new/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="asset_new/css/custom.css" rel="stylesheet">
+    <link href="asset_new/css/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.css">
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+</head>
+
+<body>
+    <!--	Session Expire Page Included	-->
+
+
+
+    <div style="float: left;" id="timerDelay">
+
+        <!--Session Expire Time :&nbsp;&nbsp;&nbsp;&nbsp;-->
+        <script>
+            function startSessionTimer() {
+                alertTimerId = setTimeout("afterTimeOut();", 1200000);
+            }
+            startSessionTimer();
+        </script>
+    </div>
+    <div class="container-fluid">
+        <div class="row mt-2">
+            <div class="col-3 col-md-2 col-xl-1">
+                <img data-placement="top" class="logo" data-toggle="tooltip" src="asset_new/images/iitm_logo.png"
+                    alt="Office of the Hostel" title="Office of the Hostel" width="75px" />
+
+            </div>
+            <div class="col-xl-7 col-md-6 col-9 mt-2 mt-lg-3">
+
+                <span class="blockquote text-center viewHead font-weight-bold">Office of the Hostel</span>
+
+            </div>
+            <div class="col-xl-4 col-md-4 col-12 text-right mt-3">
+                <!-- <span>Welcome!</span> -->
+                <span class="text-info">
+                    <!-- Logic - Show the Student Name based on the login -->
+
+                    <span class="text-dark p-1">Welcome !</span>Abhishek Ranjan
+
+
+                </span><br>
+                <span class="mb-0 mt-1">
+                    <i class="fa fa-calendar"></i> <span id="clock-lbl"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- For vacation Mess registration -->
+
+    <marquee onmouseover="this.setAttribute('scrollamount', 0, 0);"
+        onmouseout="this.setAttribute('scrollamount', 6, 0);">
+
+    </marquee>
+
+
+
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark p-sm-0 p-1 mt-2">
+        <!-- Brand -->
+        <a class="navbar-brand d-sm-block d-md-none" href="#">Menus</a>
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item bg-custom">
+                    <span class="nav-link">Student Food Court Purchase</span>
+                </li>
+            </ul>
+            <ul class="navbar-nav  ml-md-auto  ">
+                <li class="nav-item">
+                    <a data-placement="top" data-toggle="tooltip" class="nav-link" onclick="clearCategoryInLeisure();"
+                        href="/iitmhostel/studentDashboard.do?method=studentDisplayDetails" title="Home"><i
+                            class="fa fa-home"></i> Home</a>
+                </li>
+                <!--Logic - backicon should show in forward pages not in the dashboard page   -->
+
+
+                <li class="nav-item">
+                    <a data-placement="top" data-toggle="tooltip" class="nav-link" onclick="clearCategoryInLeisure();"
+                        href="/iitmhostel/logout.do?method=logoutuser&logoutType=student" title="Logout"><i
+                            class="fa fa-sign-out text-danger"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+
+        <!-- Load Libraries  -->
+
+
+
+
+
+
+
+
+        <div class="row">
+            <!-- If list is not empty -->
+
+            <span class="ml-3 mt-4">Mess Name : <b><span id="messNameID"></span> </b>
+                <span style="margin-left: 50px;">Mess Period : <b><span id="dinningFID"></span> to <span
+                            id="dinningTID"></span></b></span></span>
+            <div class="col-xl-12 mt-4">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped dateTable" style="width:100%">
+                        <thead>
+                            <tr class="bg-dark text-white">
+                                <th class="text-center">Purchase No</th>
+                                <th class="text-center">Purchase Date</th>
+                                <th class="text-center">Student Id</th>
+                                <th class="text-center">Description</th>
+                                <th class="text-center">Credit Amount</th>
+                                <th class="text-center">Debit Amount</th>
+                                <th class="text-center">Closing Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Food Court Purchase list -->
+
+                            <tr>
+                                <td>Ex1727042</td>
+                                <td>01-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">129.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>129.00(Cr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1727710</td>
+                                <td>01-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">101.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>230.00(Cr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1725877</td>
+                                <td>01-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+                                <td class="text-right">6068.00(Cr)</td>
+
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>5838.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1728740</td>
+                                <td>02-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">111.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>5727.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1728032</td>
+                                <td>02-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">55.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>5672.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1728703</td>
+                                <td>02-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">35.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>5637.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1728713</td>
+                                <td>02-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">84.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>5553.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1728738</td>
+                                <td>02-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">201.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>5352.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1731314</td>
+                                <td>03-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">26.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>5326.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1730222</td>
+                                <td>03-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">30.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>5296.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1730223</td>
+                                <td>03-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">34.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>5262.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1731311</td>
+                                <td>03-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">75.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>5187.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1731795</td>
+                                <td>03-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">124.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>5063.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1732855</td>
+                                <td>04-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">109.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>4954.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1732523</td>
+                                <td>04-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">64.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>4890.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1747061</td>
+                                <td>04-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">64.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>4826.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1734217</td>
+                                <td>05-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">34.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>4792.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1734216</td>
+                                <td>05-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">45.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>4747.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1734633</td>
+                                <td>05-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">207.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>4540.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1735266</td>
+                                <td>05-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">106.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>4434.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1735576</td>
+                                <td>06-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">64.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>4370.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1735876</td>
+                                <td>06-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">152.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>4218.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1736470</td>
+                                <td>06-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">141.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>4077.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1736645</td>
+                                <td>07-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">30.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>4047.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1736648</td>
+                                <td>07-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">44.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>4003.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1737046</td>
+                                <td>07-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">109.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>3894.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1737047</td>
+                                <td>07-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">35.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>3859.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1737654</td>
+                                <td>07-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">96.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>3763.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1737657</td>
+                                <td>07-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">26.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>3737.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1738364</td>
+                                <td>08-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">120.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>3617.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1739418</td>
+                                <td>08-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">50.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>3567.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1739561</td>
+                                <td>08-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">14.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>3553.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1740588</td>
+                                <td>09-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">128.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>3425.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1739943</td>
+                                <td>09-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">79.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>3346.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1741323</td>
+                                <td>09-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">117.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>3229.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1742548</td>
+                                <td>10-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">127.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>3102.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1742551</td>
+                                <td>10-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">35.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>3067.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1742974</td>
+                                <td>10-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">93.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>2974.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1743963</td>
+                                <td>11-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">34.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>2940.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1745653</td>
+                                <td>11-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">93.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>2847.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1744693</td>
+                                <td>11-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">118.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>2729.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1743961</td>
+                                <td>11-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">30.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>2699.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1746859</td>
+                                <td>12-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">35.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>2664.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1746078</td>
+                                <td>12-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">74.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>2590.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1746858</td>
+                                <td>12-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">139.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>2451.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1747572</td>
+                                <td>12-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">60.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>2391.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1748719</td>
+                                <td>13-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">143.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>2248.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1748155</td>
+                                <td>13-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">64.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>2184.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1749444</td>
+                                <td>13-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">95.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>2089.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1750336</td>
+                                <td>14-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">35.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>2054.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1749730</td>
+                                <td>14-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">30.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>2024.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1749731</td>
+                                <td>14-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">14.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>2010.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1750335</td>
+                                <td>14-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">52.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>1958.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1751186</td>
+                                <td>14-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">84.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>1874.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1752324</td>
+                                <td>15-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">26.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>1848.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1751560</td>
+                                <td>15-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">64.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>1784.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1752317</td>
+                                <td>15-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">108.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>1676.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1753358</td>
+                                <td>15-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">84.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>1592.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1754269</td>
+                                <td>16-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">97.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>1495.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1755557</td>
+                                <td>16-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">108.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>1387.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1756722</td>
+                                <td>17-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">132.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>1255.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1755938</td>
+                                <td>17-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">69.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>1186.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1757676</td>
+                                <td>17-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">64.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>1122.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1758744</td>
+                                <td>18-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">115.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>1007.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1758080</td>
+                                <td>18-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">35.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>972.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1758081</td>
+                                <td>18-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">14.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>958.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1759650</td>
+                                <td>18-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">94.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>864.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1760755</td>
+                                <td>19-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">131.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>733.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1760106</td>
+                                <td>19-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">64.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>669.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1761311</td>
+                                <td>19-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">96.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>573.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1762332</td>
+                                <td>20-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">131.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>442.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1762922</td>
+                                <td>20-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">94.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>348.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1764165</td>
+                                <td>21-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">120.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>228.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1763753</td>
+                                <td>21-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">30.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>198.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1765011</td>
+                                <td>21-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">78.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>120.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1766233</td>
+                                <td>22-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">150.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>30.00(Cr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1766192</td>
+                                <td>22-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+                                <td class="text-right">3500.00(Cr)</td>
+
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>3470.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ex1766235</td>
+                                <td>22-Sep-2025</td>
+                                <td>CS23S036</td>
+                                <td>Purchased at Prism Food court Nilgiri Second Floor
+                                    <input id="mess" type="hidden" value="Prism Food court Nilgiri Second Floor"
+                                        name="messRegistrationForm">
+                                    <input id="dinningF" type="hidden" value="01-Sep-2025" name="messRegistrationForm">
+                                    <input id="dinningT" type="hidden" value="11-Oct-2025" name="messRegistrationForm">
+                                </td>
+
+
+
+                                <td align="center">-</td>
+
+
+                                <td class="text-right">35.00(Dr)</td>
+
+
+
+                                <td class="text-right" style="padding-right:30px">
+                                    <b></b>3435.00(Dr)
+
+                                </td>
+                            </tr>
+
+                            <tr style="font-weight: bold;">
+                                <td class="text-right" colspan="4">Total : </td>
+                                <td class="text-right">9568.00(Cr)</td>
+                                <td class="text-right">6133.00(Dr)</td>
+
+
+                                <td class="text-right">
+                                    <b></b>3435.00(Dr)
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <div class="text-right">
+
+                        <b>Final Balance: </b>3435.00(Dr)
+                    </div>
+                </div>
+            </div>
+
+            <!-- If list is empty -->
+
+        </div>
+
+
+
+
+
+    </div>
+    <!-- Footer Section -->
+    <div class="footer pb-1 mt-3">
+        <hr>
+        <div class="text-center mt-3">
+            Powered by Triesten Technologies Private Limited. <a href="http://triesten.com"
+                alt="Triesten Technologies Private Limited" target="_blank">www.triesten.com</a>
+        </div>
+
+        <div class="text-center">
+            <a class="helpdesk" href="/iitmhostel/helpDeskNew.do?method=displayHelpDesk"><strong>Help Desk </strong></a>
+            <a class="faq" href="/iitmhostel/faqDetailsNew.do?method=displayFaq"><strong>/ FAQ </strong></a>
+        </div>
+
+    </div>
+    <div id="myModal" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-primary"></h4>
+                    <button type="button" class="close text-danger pointer" onclick="reloadValues();"
+                        data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Loading...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="asset_new/js/jquery.min.3.3.1.js"></script>
+    <script src="asset_new/js/jquery-ui.js"></script>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- <script src="asset_new/js/jquery.min.3.3.1.js"></script> -->
+
+    <script src="asset_new/js/popper.min.js"></script>
+    <script src="asset_new/js/bootstrap.min.js"></script>
+    <script src="asset_new/js/jquery.dataTables.min.js"></script>
+    <script src="asset_new/js/dataTables.bootstrap4.min.js"></script>
+    <script src="asset_new/js/jquery.repeater version 1.2.1.js"></script>
+    <!-- <script src="asset_new/js/dataTables.responsive.min.js"></script> -->
+    <script type="text/javascript" src="common/js/ajax.js"></script>
+    <script src="asset_new/js/responsive.bootstrap4.min.js"></script>
+    <script src="asset_new/js/common.js?v=1.8"></script>
+    <script src="asset_new/js/zoom.js"></script>
+    <script src="asset_new/js/vacationRegJs.js"></script>
+</body>
+
+</html>
+
+<script>
+    document.getElementById('messNameID').innerHTML = document.getElementById('mess').value;
+    document.getElementById('dinningFID').innerHTML = document.getElementById('dinningF').value;
+    document.getElementById('dinningTID').innerHTML = document.getElementById('dinningT').value;
+</script>

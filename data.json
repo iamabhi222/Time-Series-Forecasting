@@ -1,0 +1,298 @@
+[
+    {
+        "date": "16-Jan-2025",
+        "total_debit": 267.0
+    },
+    {
+        "date": "17-Jan-2025",
+        "total_debit": 548.0
+    },
+    {
+        "date": "18-Jan-2025",
+        "total_debit": 209.0
+    },
+    {
+        "date": "19-Jan-2025",
+        "total_debit": 239.0
+    },
+    {
+        "date": "20-Jan-2025",
+        "total_debit": 285.0
+    },
+    {
+        "date": "21-Jan-2025",
+        "total_debit": 192.0
+    },
+    {
+        "date": "22-Jan-2025",
+        "total_debit": 300.0
+    },
+    {
+        "date": "23-Jan-2025",
+        "total_debit": 154.0
+    },
+    {
+        "date": "24-Jan-2025",
+        "total_debit": 258.0
+    },
+    {
+        "date": "25-Jan-2025",
+        "total_debit": 168.0
+    },
+    {
+        "date": "29-Jan-2025",
+        "total_debit": 252.0
+    },
+    {
+        "date": "30-Jan-2025",
+        "total_debit": 261.0
+    },
+    {
+        "date": "31-Jan-2025",
+        "total_debit": 111.0
+    },
+    {
+        "date": "01-Feb-2025",
+        "total_debit": 136.0
+    },
+    {
+        "date": "02-Feb-2025",
+        "total_debit": 267.0
+    },
+    {
+        "date": "03-Feb-2025",
+        "total_debit": 192.0
+    },
+    {
+        "date": "04-Feb-2025",
+        "total_debit": 229.0
+    },
+    {
+        "date": "05-Feb-2025",
+        "total_debit": 288.0
+    },
+    {
+        "date": "06-Feb-2025",
+        "total_debit": 145.0
+    },
+    {
+        "date": "07-Feb-2025",
+        "total_debit": 188.0
+    },
+    {
+        "date": "08-Feb-2025",
+        "total_debit": 324.0
+    },
+    {
+        "date": "09-Feb-2025",
+        "total_debit": 325.0
+    },
+    {
+        "date": "10-Feb-2025",
+        "total_debit": 320.0
+    },
+    {
+        "date": "11-Feb-2025",
+        "total_debit": 372.0
+    },
+    {
+        "date": "12-Feb-2025",
+        "total_debit": 391.0
+    },
+    {
+        "date": "01-Mar-2025",
+        "total_debit": 311.0
+    },
+    {
+        "date": "02-Mar-2025",
+        "total_debit": 233.0
+    },
+    {
+        "date": "03-Mar-2025",
+        "total_debit": 253.0
+    },
+    {
+        "date": "04-Mar-2025",
+        "total_debit": 340.0
+    },
+    {
+        "date": "05-Mar-2025",
+        "total_debit": 202.0
+    },
+    {
+        "date": "06-Mar-2025",
+        "total_debit": 286.0
+    },
+    {
+        "date": "07-Mar-2025",
+        "total_debit": 212.0
+    },
+    {
+        "date": "08-Mar-2025",
+        "total_debit": 171.0
+    },
+    {
+        "date": "09-Mar-2025",
+        "total_debit": 352.0
+    },
+    {
+        "date": "10-Mar-2025",
+        "total_debit": 274.0
+    },
+    {
+        "date": "11-Mar-2025",
+        "total_debit": 226.0
+    },
+    {
+        "date": "12-Mar-2025",
+        "total_debit": 341.0
+    },
+    {
+        "date": "13-Mar-2025",
+        "total_debit": 118.0
+    },
+    {
+        "date": "14-Mar-2025",
+        "total_debit": 140.0
+    },
+    {
+        "date": "15-Mar-2025",
+        "total_debit": 210.0
+    },
+    {
+        "date": "16-Mar-2025",
+        "total_debit": 259.0
+    },
+    {
+        "date": "17-Mar-2025",
+        "total_debit": 251.0
+    },
+    {
+        "date": "18-Mar-2025",
+        "total_debit": 143.0
+    },
+    {
+        "date": "19-Mar-2025",
+        "total_debit": 324.0
+    },
+    {
+        "date": "20-Mar-2025",
+        "total_debit": 237.0
+    },
+    {
+        "date": "21-Mar-2025",
+        "total_debit": 270.0
+    },
+    {
+        "date": "22-Mar-2025",
+        "total_debit": 164.0
+    },
+    {
+        "date": "23-Mar-2025",
+        "total_debit": 165.0
+    },
+    {
+        "date": "24-Mar-2025",
+        "total_debit": 273.0
+    },
+    {
+        "date": "25-Mar-2025",
+        "total_debit": 240.0
+    },
+    {
+        "date": "26-Mar-2025",
+        "total_debit": 316.0
+    },
+    {
+        "date": "27-Mar-2025",
+        "total_debit": 109.0
+    },
+    {
+        "date": "01-Sep-2025",
+        "total_debit": 230.0
+    },
+    {
+        "date": "02-Sep-2025",
+        "total_debit": 486.0
+    },
+    {
+        "date": "03-Sep-2025",
+        "total_debit": 289.0
+    },
+    {
+        "date": "04-Sep-2025",
+        "total_debit": 237.0
+    },
+    {
+        "date": "05-Sep-2025",
+        "total_debit": 392.0
+    },
+    {
+        "date": "06-Sep-2025",
+        "total_debit": 357.0
+    },
+    {
+        "date": "07-Sep-2025",
+        "total_debit": 340.0
+    },
+    {
+        "date": "08-Sep-2025",
+        "total_debit": 184.0
+    },
+    {
+        "date": "09-Sep-2025",
+        "total_debit": 324.0
+    },
+    {
+        "date": "10-Sep-2025",
+        "total_debit": 255.0
+    },
+    {
+        "date": "11-Sep-2025",
+        "total_debit": 275.0
+    },
+    {
+        "date": "12-Sep-2025",
+        "total_debit": 308.0
+    },
+    {
+        "date": "13-Sep-2025",
+        "total_debit": 302.0
+    },
+    {
+        "date": "14-Sep-2025",
+        "total_debit": 215.0
+    },
+    {
+        "date": "15-Sep-2025",
+        "total_debit": 282.0
+    },
+    {
+        "date": "16-Sep-2025",
+        "total_debit": 205.0
+    },
+    {
+        "date": "17-Sep-2025",
+        "total_debit": 265.0
+    },
+    {
+        "date": "18-Sep-2025",
+        "total_debit": 258.0
+    },
+    {
+        "date": "19-Sep-2025",
+        "total_debit": 291.0
+    },
+    {
+        "date": "20-Sep-2025",
+        "total_debit": 225.0
+    },
+    {
+        "date": "21-Sep-2025",
+        "total_debit": 228.0
+    },
+    {
+        "date": "22-Sep-2025",
+        "total_debit": 185.0
+    }
+]
