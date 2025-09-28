@@ -1,0 +1,8 @@
+beautifulsoup4 
+pandas 
+numpy 
+matplotlib 
+pystan==2.19.1.1
+prophet 
+scikit-learn 
+scipy
